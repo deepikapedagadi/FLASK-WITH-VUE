@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Output Page</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Output</h1>
+        <p>{{ message }}</p>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        const savedData = JSON.parse(localStorage.getItem("userData") || "{}");
+
+        createApp({
+            data() {
+                return {
+                    message: savedData.message || "No data yet"
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
